@@ -153,15 +153,18 @@ public class Main {
     }
 
     private static void sapXepTheoTenBD() {
-        for (int i = 0; i < qlMuonSachs.length-1; i++) {
-            for (int j = i+1; j < qlMuonSachs.length; j++) {
-                if (qlMuonSachs[i].getBanDoc().getTen().compareToIgnoreCase(qlMuonSachs[j].getBanDoc().getTen()) > 0) {
-                    QLMuonSach tmp = qlMuonSachs[i];
-                    qlMuonSachs[i] = qlMuonSachs[j];
-                    qlMuonSachs[j] = tmp;
+        if (qlMuonSachs.length > 1) {
+            for (int i = 0; i < qlMuonSachs.length-1; i++) {
+                for (int j = i+1; j < qlMuonSachs.length; j++) {
+                    if (qlMuonSachs[i].getBanDoc().getTen().compareToIgnoreCase(qlMuonSachs[j].getBanDoc().getTen()) > 0) {
+                        QLMuonSach tmp = qlMuonSachs[i];
+                        qlMuonSachs[i] = qlMuonSachs[j];
+                        qlMuonSachs[j] = tmp;
+                    }
                 }
             }
         }
+        
         inBangQLMuonSach();
     }
 
@@ -174,15 +177,18 @@ public class Main {
     }
 
     private static void sapXepTheoSoLuong() {
-        for (int i = 0; i < qlMuonSachs.length-1; i++) {
-            for (int j = i+1; j < qlMuonSachs.length; j++) {
-                if (tong(qlMuonSachs[i]) < tong(qlMuonSachs[j])) {
-                    QLMuonSach tmp = qlMuonSachs[i];
-                    qlMuonSachs[i] = qlMuonSachs[j];
-                    qlMuonSachs[j] = tmp;
+         if (qlMuonSachs.length > 1) {
+            for (int i = 0; i < qlMuonSachs.length-1; i++) {
+                for (int j = i+1; j < qlMuonSachs.length; j++) {
+                    if (tong(qlMuonSachs[i]) < tong(qlMuonSachs[j])) {
+                        QLMuonSach tmp = qlMuonSachs[i];
+                        qlMuonSachs[i] = qlMuonSachs[j];
+                        qlMuonSachs[j] = tmp;
+                    }
                 }
-            }
         }
+         }
+        
         inBangQLMuonSach();
     }
 
